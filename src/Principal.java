@@ -10,6 +10,8 @@ public class Principal {
         Figura cuadrado = new Rombo("Cuadrado");
         Figura rombo = new Cuadrado("Rombo");
 
+        String tipo;
+
 
         listaDeFiguras.add(triangulo);
         listaDeFiguras.add(cuadrado);
@@ -17,18 +19,17 @@ public class Principal {
         listaDeFiguras.add(cuadrado);
         listaDeFiguras.add(rombo);
 
+
+        recorre("Paralelogramo",listaDeFiguras);
+        recorre("Figura",listaDeFiguras);
+
+    }
+
+    private static void recorre(String tipo, ArrayList<Figura> listaDeFiguras) {
         for (Figura figura : listaDeFiguras) {
-            if(figura.getClass().getSuperclass().getSimpleName() == "Paralelogramo") {
+            if(figura.getClass().getSuperclass().getSimpleName() == tipo) {
                 figura.pintar();
             }
         }
-
-        for (Figura figura : listaDeFiguras) {
-            if(figura.getClass().getSimpleName() == "Triangulo") {
-                figura.pintar();
-            }
-        }
-
-
     }
 }
